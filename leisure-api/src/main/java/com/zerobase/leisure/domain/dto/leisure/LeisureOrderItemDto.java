@@ -2,7 +2,6 @@ package com.zerobase.leisure.domain.dto.leisure;
 
 import com.zerobase.leisure.domain.entity.leisure.Leisure;
 import com.zerobase.leisure.domain.entity.order.LeisureOrderItem;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,33 +12,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LeisureOrderItemDto {
-	private Long leisureOrderItemId;
+	private Long orderItemId;
 	private Long sellerId;
 
-	private String reservationId;
+	private Long couponId;
+	private Integer salePrice;
 
-	private String leisureName;
-	private String addr;
+	private String name;
 	private Integer price;
 
 	private String pictureUrl;
 
 	private Integer persons;
 
-	private LocalDateTime startAt;
-	private LocalDateTime endAt;
+	private String startAt;
+	private String endAt;
 
 	public static LeisureOrderItemDto from(LeisureOrderItem leisureOrderItem, Leisure leisure) {
 		return LeisureOrderItemDto.builder()
-			.leisureOrderItemId(leisureOrderItem.getId())
-			.reservationId(leisureOrderItem.getReservationId())
+			.orderItemId(leisureOrderItem.getId())
 			.sellerId(leisure.getSellerId())
-			.leisureName(leisure.getLeisureName())
-			.addr(leisure.getAddr())
-			.price(leisure.getPrice())
+			.couponId(leisureOrderItem.getCouponId())
+			.salePrice(leisureOrderItem.getSalePrice())
+			.pictureUrl(leisure.getPictureUrl())
+			.name(leisure.getLeisureName())
+			.price(leisureOrderItem.getPrice())
 			.persons(leisureOrderItem.getPersons())
-			.startAt(leisureOrderItem.getStartAt())
-			.endAt(leisureOrderItem.getEndAt())
+			.startAt(leisureOrderItem.getStartAt().toString())
+			.endAt(leisureOrderItem.getEndAt().toString())
 			.build();
 	}
 }

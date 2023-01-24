@@ -3,6 +3,7 @@ package com.zerobase.accommodation.domain.entity.coupon;
 import com.zerobase.accommodation.domain.entity.common.BaseEntity;
 import com.zerobase.accommodation.domain.form.accommodation.AddAccommodationCouponGroupForm;
 import com.zerobase.accommodation.domain.type.CouponTarget;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,11 +28,11 @@ public class AccommodationCouponGroup extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long salePrice;
+	private Integer salePrice;
 	private CouponTarget couponTarget;
 	private Integer issusedcount;
 
-	private LocalDateTime endTime;
+	private LocalDate endTime;
 
 	public static AccommodationCouponGroup of(AddAccommodationCouponGroupForm form){
 		return AccommodationCouponGroup.builder()

@@ -27,6 +27,6 @@ public class LeisureDayOff extends BaseEntity{
 	private Long leisureId;
 
 	private String year;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private LocalDate startAt;
+	private LocalDate endAt;
 }
