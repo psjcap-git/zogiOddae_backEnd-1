@@ -1,4 +1,4 @@
-package com.zerobase.leisure.domain.form;
+package com.zerobase.accommodation.domain.dto.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddLeisureBlackListForm {
-
-    private Long productId;
-
-    private Long customerId;
-    private String description;
+public class AccommodationOrderCompleteDto {
+    private String reservationId;
+    private Integer price;
 }
