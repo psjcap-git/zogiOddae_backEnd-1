@@ -2,7 +2,6 @@ package com.zerobase.accommodation.domain.dto.payment;
 
 import com.zerobase.accommodation.domain.entity.payment.AccommodationPayment;
 import com.zerobase.accommodation.domain.type.PaymentStatus;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class AccommodationPaymentDto {
     private Long paymentId;
     private Long customerId;
-    private Long orderItemId; // 주문 상품 아이디
+    private Long cartId; // 주문 상품 아이디
 
     private Long id;
 
@@ -36,13 +35,13 @@ public class AccommodationPaymentDto {
         return AccommodationPaymentDto.builder()
             .paymentId(accommodationPayment.getId())
             .customerId(accommodationPayment.getCustomerId())
-            .orderItemId(accommodationPayment.getAccommodationOrderItemId())
+            .cartId(accommodationPayment.getCartId())
             .id(accommodationPayment.getAccommodationId())
             .price(accommodationPayment.getPrice())
             .tid(accommodationPayment.getTid())
             .paymentToken(accommodationPayment.getPaymentToken())
             .status(accommodationPayment.getStatus())
-            .canceledAt(accommodationPayment.getCanceledAt().toString())
+            //.canceledAt(accommodationPayment.getCanceledAt().toString())
             .nextRedirectURL(nextRedirectURL)
             .approveURL(approveURL)
             .build();
@@ -52,7 +51,7 @@ public class AccommodationPaymentDto {
         return AccommodationPaymentDto.builder()
             .paymentId(accommodationPayment.getId())
             .customerId(accommodationPayment.getCustomerId())
-            .orderItemId(accommodationPayment.getAccommodationOrderItemId())
+            .cartId(accommodationPayment.getCartId())
             .id(accommodationPayment.getAccommodationId())
             .price(accommodationPayment.getPrice())
             .tid(accommodationPayment.getTid())
